@@ -1,0 +1,35 @@
+Sharks Web Application
+
+NOTE: MAKE SURE YOU ALWAYS DO A 'git pull' EACH TIME PRIOR TO STARTING WORKING!!
+Not doing so will mess up your working directory, which is easily recoverable, but simply doing a pull every time will save you a lot of headache.
+
+GitHub repository name: SharksWebApp.git
+
+To connect to this repository, first make a GitHub account.
+Then, you need to make an SSH key on your machine, and add it to your GitHub account. The instructions for how to do this are at https://help.github.com/articles/generating-ssh-keys
+This is easy to do, and should only take a few minutes.
+
+Next, create a new directory where you want the Rails application to be stored in, and 'cd' into that directory.
+Run the command 'git init'. This will set up a '.git' directory in the current directory, i.e. the one where the Rails app will be stored.
+
+Type 'cd .git' to move into the '.git' directory.
+Open the file called 'config' in a text editor, and make it EXACTLY like the following:
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = ssh://git@github.com/jvilla93/SharksWebApp.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+
+After saving this file, go back one directory ('cd ..').
+Now type 'git pull', and it should pull everything from the GitHub repository to the directory. You are now good to go.
+
+Anytime you make a change to a file (ANY file), you need to commit it to the GitHub repository. To do this, go to the directory which contains the '.git' folder, the 'application' folder and the 'README' file.
+Type 'git add application'. This will add every file in the 'application' folder to your next commit.
+Type 'git commit -m '(insert message here)''. The single quotes around the message are necessary. Please write a message each time you do a commit to let everyone in the group know what you changed.
+Finally, type 'git push'. This will push all of your changes to the GitHub repository, and each time someone else does a 'git pull', your changes will be pulled to their machine.
